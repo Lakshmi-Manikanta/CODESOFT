@@ -1,37 +1,43 @@
-Task 1 - Landing Page
+# Task 1 - Landing Page
 
-This is my first task for the CodSoft Web Development Internship.
+This is my **first task** for the **CodSoft Web Development Internship**.
 
+---
 
+## Project Description
 
-Project Description
+I created a **simple and responsive landing page** using **HTML** and **CSS**.  
+The webpage includes:
 
-I created a simple landing page using HTML and CSS.
+- A **navigation bar**
+- A **hero section**
+- **Feature boxes**
+- A **footer**
 
-It has a navigation bar, a hero section, feature boxes, and a footer.
+---
 
+## Technologies Used
 
+- HTML5  
+- CSS3
 
-Technologies Used
+---
 
-HTML
+## Files in This Folder
 
-CSS
+- `Landingpage.html` → The main web page  
+- `Landingstyle.css` → The design and layout  
+- `README.md` → This description file
 
-Files in This Folder
+---
 
-Landingpage.html → The main web page
+## Author
 
-Landingstyle.css → The design and layout
+**Lakshmi Manikanta Pedapudi**  
+_Web Development Intern @ CodSoft_
 
-README.md → This description file
+---
 
-Author
+### Tags
 
-Lakshmi Manikanta Pedapudi
-
-Web Development Intern @ CodSoft
-
-
-
-#codsoft #webdevelopment #internship
+`#codsoft` `#webdevelopment` `#internship`
