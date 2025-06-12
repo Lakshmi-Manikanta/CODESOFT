@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Job Listings</title>
+  <link rel="stylesheet" href="jobstyle.css">
+</head>
+<body>
+  <header>
+    <h1>Available Jobs</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="jobs.html">Jobs</a>
+    </nav>
+  </header>
+
+  <main>
+    <input type="text" id="search" placeholder="Search jobs..." onkeyup="searchJobs()">
+    
+    <div id="job-list">
+      <div class="job-card">
+        <h3><a href="job-detail-1.html">Frontend Developer</a></h3>
+        <p>Company: TechSpark</p>
+        <p>Location: Remote</p>
+      </div>
+      <div class="job-card">
+        <h3><a href="job-detail-2.html">Backend Developer</a></h3>
+        <p>Company: DevHub</p>
+        <p>Location: Hyderabad</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Job Board</p>
+  </footer>
+
+  <script src="jobscript.js"></script>
+</body>
+</html>
