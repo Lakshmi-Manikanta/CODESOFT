@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create New Post</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>✍️ Create a New Blog Post</h1>
+        <nav>
+            <a href="/">🏠 Home</a> |
+            <a href="/dashboard">🗂️ Dashboard</a> |
+            <a href="/posts">📚 All Posts</a> |
+            <a href="/logout">🔚 Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <form action="/posts/create" method="POST" class="post-form">
+            <div>
+                <label for="title" style="color:black;">Title:</label><br>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <br>
+            <div>
+                <label for="content" style="color:black;">Content:</label><br>
+                <textarea id="content" name="content" rows="10" required></textarea>
+            </div>
+            <br>
+            <button type="submit">Publish Post</button>
+        </form>
+    </main>
+
+    <footer style="color:black;">
+        <p>&copy; <%= new Date().getFullYear() %> My Blog Platform</p>
+    </footer>
+</body>
+</html>
