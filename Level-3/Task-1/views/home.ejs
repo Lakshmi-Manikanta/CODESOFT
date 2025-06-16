@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MyBlog | Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background: linear-gradient(to right, #134e5e, #71b280);
+      color: #333;
+      padding: 20px;
+    }
+
+    .site-header {
+      background-color: #F5FFFA;
+      color: #fff;
+      padding: 25px 0 35px;
+      margin-bottom: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      text-align: center;
+      font-size: 2rem;
+      letter-spacing: 1px;
+    }
+
+    .logo a {
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .site-nav {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .site-nav a {
+      margin: 0 12px;
+      color: #333333;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .site-nav a:hover {
+      color: #f39c12;
+    }
+
+    main.container {
+      margin-bottom: 50px;
+    }
+
+    .blog-intro {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .blog-intro h2 {
+      font-size: 1.8rem;
+      color: #222;
+    }
+
+    .blog-intro p {
+      color: black;
+      font-size: 1rem;
+    }
+
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .post-card {
+      background: #F5FFFA;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+      transition: transform 0.3s ease;
+    }
+
+    .post-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .post-thumb {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .post-title {
+      font-size: 1.3rem;
+      color: #222;
+      margin-bottom: 8px;
+    }
+
+    .post-title a {
+      color: #222;
+      text-decoration: none;
+    }
+
+    .post-title a:hover {
+      color: #3498db;
+    }
+
+    .post-meta {
+      font-size: 0.9rem;
+      color: #777;
+      margin-bottom: 10px;
+    }
+
+    .post-excerpt {
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .read-more {
+      display: inline-block;
+      margin-top: 10px;
+      color: #3498db;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .read-more:hover {
+      text-decoration: underline;
+    }
+
+    .site-footer {
+      background: transparent;
+      padding: 20px 0 10px;
+      color: black;
+      font-size: 0.9rem;
+      border-top: 1px solid #ddd;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 40px;
+    }
+
+    @media (max-width: 768px) {
+      .site-nav a {
+        display: inline-block;
+        margin: 8px;
+      }
+
+      .post-card {
+        padding: 15px;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo"><a href="/">📚 MyBlog</a></h1>
+      <nav class="site-nav">
+        <a href="/">🏠 Home</a>
+	<a href="/register">🖊️ Register</a>
+        <a href="/login">👤 Login</a>
+        <a href="/dashboard">🗂️ Dashboard</a>
+        <a href="/create">📝 New Post</a>
+        <a href="/logout">🔚 Logout</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <section class="blog-intro">
+      <h2>📝 All Blog Posts</h2>
+      <p>Explore thoughts, tips, and ideas from our amazing authors.</p>
+    </section>
+
+    <section class="posts-grid">
+      <% if (posts.length === 0) { %>
+        <p style="text-align:center; color:#777; font-size: 1.1rem;">No posts yet! Check back soon.</p>
+      <% } else { %>
+        <% posts.forEach(post => { %>
+          <article class="post-card">
+            <% if (post.image) { %>
+              <img src="<%= post.image %>" alt="<%= post.title %>" class="post-thumb">
+            <% } %>
+            <div class="post-content">
+              <h3 class="post-title">
+                <a href="/post/<%= post._id %>"><%= post.title %></a>
+              </h3>
+              <div class="post-meta">
+                By <strong><%= typeof post.author === 'object' ? post.author.username : post.author %></strong> • 
+                <%= new Date(post.createdAt).toDateString() %>
+              </div>
+              <p class="post-excerpt">
+                <%= post.content.length > 150 ? post.content.substring(0, 150) + '...' : post.content %>
+              </p>
+              <a href="/post/<%= post._id %>" class="read-more">Read More</a>
+            </div>
+          </article>
+        <% }); %>
+      <% } %>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <%= new Date().getFullYear() %> MyBlog. Built with ❤️ by CodSoft Intern.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

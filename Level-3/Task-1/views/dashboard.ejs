@@ -1,0 +1,35 @@
+<%- include("layout") %> <!-- Starts the layout -->
+
+<div class="container">
+  <h1 class="post-title" style="color: #000;">Hello, <%= user.username %>!</h1></br>
+
+  <div class="actions" style="text-align:center; margin-bottom: 30px;">
+    <a href="/create" class="btn" style="margin-right: 15px; background-color: #3498db; color: #fff; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; box-shadow: 0 4px 10px rgba(52,152,219,0.3); transition: background-color 0.3s ease;">
+      ➕ Create New Post
+    </a>
+    <a href="/logout" class="btn logout" style="background-color: #e74c3c; color: #fff; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; box-shadow: 0 4px 10px rgba(231,76,60,0.3); transition: background-color 0.3s ease;">
+      🚪 Logout
+    </a>
+  </div>
+
+  <h2 class="subtitle" style="font-size: 1.8rem; color: #222; margin-bottom: 20px; text-align: center;">Your Posts</h2>
+
+  <% if (posts.length === 0) { %>
+    <p style="text-align:center; color: #777; font-size: 1rem;">You haven't written any posts yet.</p>
+  <% } else { %>
+    <ul class="post-list" style="list-style: none; max-width: 700px; margin: 0 auto; padding: 0;">
+      <% posts.forEach(post => { %>
+        <li class="post-item" style="background: #F5FFFA; padding: 20px 30px; margin-bottom: 20px; border-radius: 18px; box-shadow: 0 3px 8px rgba(0,0,0,0.07); display: flex; justify-content: space-between; align-items: center; transition: transform 0.3s ease; cursor: pointer;">
+          <a href="/post/<%= post._id %>" style="color: #3498db; font-weight: 600; font-size: 1.1rem; text-decoration: none; flex-grow: 1;">
+            <%= post.title %>
+          </a>
+          <span class="timestamp" style="color: #777; font-size: 0.9rem; margin-left: 15px; white-space: nowrap;">
+            <%= post.createdAt.toDateString() %>
+          </span>
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+</div>
+
+<%- include("footer") %> <!-- Ends the layout -->
