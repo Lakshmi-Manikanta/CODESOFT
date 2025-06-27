@@ -1,0 +1,47 @@
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 220px;
+  background-color: #f1f1f1;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+}
+
+.main-content {
+  flex: 1;
+  padding: 30px;
+  background: linear-gradient(to right, #134e5e, #71b280);
+  overflow-y: auto;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #4f46e5;
+  color: white;
+  padding: 15px 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 20px;
+}
+
+.sidebar nav a {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 500;
+  color: #333;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.sidebar nav a.active {
+  background-color: #4f46e5;
+  color: white;
+}
